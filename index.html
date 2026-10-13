@@ -193,9 +193,10 @@ function resize() {
   viewScale = cv.height / VH;
   VW = cv.width / viewScale;
   if (VW < MIN_VW) { viewScale = cv.width / MIN_VW; VW = MIN_VW; }
-  VW = Math.min(1500, VW);
+  if (VW > 1600) { viewScale = cv.width / 1600; VW = 1600; }
   VHv = cv.height / viewScale;
-  offY = Math.round((VHv - VH) * 0.42);
+  // Taller than the level: split the extra between sky and soil. Shorter: keep the ground in view.
+  offY = Math.round(VHv >= VH ? (VHv - VH) * 0.42 : VHv - VH);
   const probe = document.getElementById('safe-probe');
   const safeTop = probe ? probe.offsetHeight : 0;
   hudY = (safeTop * dpr) / viewScale;
