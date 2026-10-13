@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bu &amp; Bu Bun Dash</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +22,10 @@
   --display:"Fredoka","Baloo 2","Arial Rounded MT Bold",system-ui,sans-serif;
   color-scheme:light;
 }
+[hidden]{display:none!important}
 html,body{height:100%}
+body{margin:0}
+*,*::before,*::after{box-sizing:border-box}
 body{background:var(--bg);background-image:radial-gradient(var(--dot) 1.6px,transparent 1.6px);background-size:22px 22px;color:var(--ink);font-family:var(--display);font-weight:500}
 .wrap{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:18px 28px;display:flex;flex-direction:column;gap:14px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -102,6 +110,8 @@ button:focus-visible{outline:3px solid var(--lav-deep);outline-offset:3px}
 }
 </style>
 
+</head>
+<body>
 <main class="wrap">
   <header class="top">
     <div class="brand">
@@ -968,3 +978,6 @@ $('btn-pause').addEventListener('click', () => { if (state === 'play' || state =
 $('btn-mute').addEventListener('click', () => { toggleMute(); document.activeElement && document.activeElement.blur(); });
 })();
 </script>
+
+</body>
+</html>
